@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1">
+    <link rel = "shortcut icon" type = "image/jpg" href = "assets\real_favicon.png" />
+</head>
+
+<body>
+    <script src = "https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async>
+        const crate = new Crate({
+            server: '856377026390654976',
+            channel: '856377027132653620'
+        })
+
+        crate.notify('Hey there user')
+        crate.on('signIn', data => {
+          console.log(`User signed in as ${data.name}`)
+          crate.emit('sendMessage', 'Hello world')
+        })
+    </script>
+</body>
