@@ -3,37 +3,25 @@
    <meta name = "viewport" content = "width=device-width, initial-scale=1">
    <link rel = "shortcut icon" type = "image/jpg" href = "assets\real_favicon.png"/>
    <link rel="preconnect" href="https://fonts.gstatic.com">
-   <style>
-    .rectangle {
-      height: 50px;
-      width: auto;
-      background-color: white;
-      color: #5865F2;
-      font-family: Verdana;
-      text-align: left;
-      font-size: xx-large;
-      font-style: unset;
-      border-radius: 4px;
-    }
-    </style>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
    <title>Buzz Development</title>
 </head>
 
 <body style="background-color: #29CC7B;">
-   <h1 style="font-family: Verdana; color: white; letter-spacing: 0px; text-align: center;"><b>Let's get contructive with the<br><mark style="background-color: transparent; color: white;">Brawl Stars APl</mark></b></h1>
-   <p style="font-family: Verdana; text-align: center; color: white;">Create more with the Brawl Stars API using our open sourced clients on <a href="https://github.com/Buzz-Development" style="text-decoration:none; background-color: #5865F2; border-radius: 8px; color: white;" target="_blank">Github</a></p>
-   <button style="border-radius: 5px; background-color: #5865F2; border-color: #5865F2; border: none; padding: 15px 32px; font-family: Verdana; font-size: large; color: aliceblue; margin: auto; display: block;"><b>Start Creating</b></button>
-   <h2 style="font-family:Verdana; text-align: center; color: white;"><b>What do <i>we</i> do?</b></h2>
-   <p style="font-family: Verdana; text-align: center; color: white;">We are commited to provide developers with a variety and the best API clients<br>Check out our <a href="https://github.com/Buzz-Development/buzz-development.github.io" style="text-decoration:none; background-color: #5865F2; border-radius: 8px; color: white;" target="_blank">website</a> and <a href="https://discord.com/api/oauth2/authorize?client_id=853507308319801364&permissions=0&scope=bot%20applications.commands" style="text-decoration:none; background-color: #5865F2; border-radius: 8px; color: white;" target="_blank">Discord bot</a> or join our <a href="https://discord.gg/RXysxKJaqk" style="text-decoration:none; background-color: #5865F2; border-radius: 8px; color: white;" target="_blank">Discord server</a></p>
+   <h1 style="font-family: Verdana; color: white; letter-spacing: 0px; text-align: center; margin-top: 30px;"><b>Let's get contructive with the<br><mark style="background-color: transparent; color: white;">Brawl Stars APl</mark></b></h1>
+   <p style="font-family: Verdana; text-align: center; color: white; margin-top: 10px;">Create more with the Brawl Stars API using our open sourced clients on <a href="https://github.com/Buzz-Development" style="text-decoration:none; background-color: #5865F2; border-radius: 8px; color: white;" target="_blank">Github</a><br>We are commited to providing developers with a variety and the best API clients<br>Check out our <a href="https://github.com/Buzz-Development/buzz-development.github.io" style="text-decoration:none; background-color: #5865F2; border-radius: 8px; color: white;" target="_blank">website</a> and <a href="https://discord.com/api/oauth2/authorize?client_id=853507308319801364&permissions=0&scope=bot%20applications.commands" style="text-decoration:none; background-color: #5865F2; border-radius: 8px; color: white;" target="_blank">Discord bot</a> or join our <a href="https://discord.gg/RXysxKJaqk" style="text-decoration:none; background-color: #5865F2; border-radius: 8px; color: white;" target="_blank">Discord server</a></p>
+   <button style="border-radius: 5px; background-color: #5865F2; border-color: #5865F2; border: none; padding: 15px 32px; font-family: Verdana; font-size: large; color: aliceblue; margin: auto; display: block; margin-top: 20px;"><b>Start Creating</b></button>
+   <p style="font-family: Verdana; text-align: center; color: white; margin-top: 10px;">Or maybe just <a style="text-decoration:none; background-color: #5865F2; border-radius: 8px; color: white;" href="pages/explore.html">explore</a></p>
    <script src = "https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async>
       const crate = new Crate({
           server: '856377026390654976',
           channel: '856377027132653620'
       })
-      
-      crate.notify('Hey there, come chat with us')
-      crate.on('signIn', data => {
-          crate.emit('sendMessage', 'Hello world')
-      })
    </script>
+   <footer style="text-align: left; padding: auto; font-family: Verdana; background-color: white; height: 80px; width: auto; margin-top: 210px; outline: #5865F2 solid 2px;">
+      <img src="assets/logo.png" style="height: 80px;">
+   </footer>
 </body>
