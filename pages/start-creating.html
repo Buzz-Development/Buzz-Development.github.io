@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1">
+    <link rel = "shortcut icon" type = "image/jpg" href = "../assets/real_favicon.png"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        a:link {
+            text-decoration:none;
+            background-color: #5865F2;
+            border-radius: 8px;
+            color: white;
+        }
+        a:visited {
+            text-decoration:none;
+            background-color: #5865F2;
+            border-radius: 8px;
+            color: white;
+        }
+        a:hover {
+            text-decoration:none;
+            background-color: #5865F2;
+            border-radius: 8px;
+            color: white;
+        }
+        a:active {
+            text-decoration:none;
+            background-color: #5865F2;
+            border-radius: 8px;
+            color: white;
+        }
+        mark {
+            background-color: transparent;
+            color: #5865F2;
+        }
+        p {
+            font-family: Verdana;
+            text-align: left;
+            color: white;
+            margin-top: 10px;
+            margin-left: 10px; 
+        }
+    </style>
+    <title>Buzz Development</title>
+</head>
+<body style="background-color: #29CC7B;">
+    <h1 style="text-align: left; margin-left: 10px; color:white; font-family: Verdana; margin-top: 30px;"><b>Start Creating</b></h1>
+    <p style="font-family: Verdana; text-align: left; color: white; margin-top: 10px; margin-left: 10px;">Start creating your own API client from scratch using this guide</p>
+    <h2 style="text-align: left; margin-left: 10px; color: white; font-family:Verdana; margin-top: 20px;"><b>Requirements</b></h2>
+    <p style="font-family: Verdana; text-align: left; color: white; margin-top: 10px; margin-left: 10px;"><a href="https://nodejs.org/en/download/">Node.js</a> public build with <a href="https://www.npmjs.com/">NPM</a> scripts<br>Code editor which supports Javascript (or Typescript) like <a href="https://code.visualstudio.com/download" style="text-decoration:none; background-color: #5865F2; border-radius: 8px; color: white;" target="_blank">VS Code</a> and a <a href="https://itconnect.uw.edu/learn/workshops/online-tutorials/web-publishing/what-is-a-terminal/">Terminal</a><br style="margin-top: 2px;">Basic understanding of how a <a href="https://itconnect.uw.edu/learn/workshops/online-tutorials/web-publishing/what-is-a-terminal/">Terminal</a> and <a href="https://www.redhat.com/en/topics/api/what-is-a-rest-api#:~:text=A%20REST%20API%20(also%20known,by%20computer%20scientist%20Roy%20Fielding." style="text-decoration:none; background-color: #5865F2; border-radius: 8px; color: white;" target="_blank">Rest API</a> works<br style="margin-top: 2px;"><a href="https://developer.brawlstars.com/#/getting-started" style="text-decoration:none; background-color: #5865F2; border-radius: 8px; color: white;" target="_blank">API Token</a> granted from <mark>https://developer.brawlstars.com</mark></p>
+    <h2 style="text-align: left; margin-left: 10px; color: white; font-family:Verdana; margin-top: 20px;"><b>Getting Started</b></h2>
+    <p style="font-family: Verdana; text-align: left; color: white; margin-top: 10px; margin-left: 10px;">Let's start off by creating a new project<br>Head over to your Terminal and create a new directory, for this guide let's call it <mark>API-client</mark><br>Change the directory of your Terminal to <mark>API-client</mark> (windows <mark>cd API-client</mark>) and intiate it using <mark>npm init -y</mark> or just <mark>npm init</mark></p>
+    <p>Download <a href="https://www.npmjs.com/package/node-fetch">node-fetch</a> using <mark>npm i node-fetch</mark> (any other module can be used which can make API requests)</p>
+    <p>Open the <mark>API-client</mark> directory in your code editor (VS Code <mark>code .</mark>) and create a new file called <mark>client.js</mark><br>start writing by importing <mark>node-fetch</mark> using <mark>const fetch = require('node-fetch')</mark></p>
+    <h2 style="text-align: left; margin-left: 10px; color: white; font-family:Verdana; margin-top: 20px;"><b>Base URLs and Endpoints</b></h2>
+    <h3 style="text-align: left; margin-left: 10px; color: white; font-family:Verdana; margin-top: 20px;"><b>What is a base URL?</b></h3>
+    <p>A base URL is basically the consistent part of the web address like <mark>https://example.com</mark><br>In our case we will be using <mark>https://api.brawlstars.com</mark> to make request to the Brawl Stars API and get the requested info</p>
+    <h3 style="text-align: left; margin-left: 10px; color: white; font-family:Verdana; margin-top: 20px;"><b>Making requests to the base URL</b></h3>
+    <p>An API request allows users to retrieve data from a data source, or to send data<br>APIs run on web servers, and expose endpoints to support the operations client<br>applications use to provide their functionality. We will be using the <mark>GET</mark> method to access the info</p>
+    <h2 style="text-align: left; margin-left: 10px; color: white; font-family:Verdana; margin-top: 20px;"><b>Building the API client</b></h2>
+    <p>Start by defining a base URL and an endpoint in your <mark>client.js</mark> file</p>
+    <pre class="line-numbers" style="background-color: white; margin-left: 10px; color:#5865F2; border-radius: 10px; width:fit-content;">
+    <code><br>const fetch = require('node-fetch');<br>const baseURL = 'https://api.brawlstars.com/v1/;<br>let endpoint = ''; //endpoints keep changing<br><br>const result = await fetch(baseURL + endpoint = 'players/%238LUV02QJG', {headers='authorization': 'Bearer API TOKEN', 'Accept': 'application/json'});<br>console.log(await result.json()); //success</code>
+    </pre>
+    <p>While making requests to the Brawl Stars API <mark>headers</mark> are required<br>Headers must include <mark>authorization</mark> and <mark>Accept</mark> parameters<br>API endpoints can be found over at <mark>https://developer.brawlstars.com/#/documentation</mark></p>
+    <h3 style="text-align: left; margin-left: 10px; color: white; font-family:Verdana; margin-top: 20px;"><b>Cleaning the tags</b></h3>
+    <p>Before accessing the <mark>players</mark> <mark>clubs</mark> and <mark>battlelog</mark> endpoints player and club tags need to be 'cleaned'<br>The # at the front should be replaced by encoded characters (%23) and the tag should be in uppercase</p>
+    <h2 style="text-align: left; margin-left: 10px; color: white; font-family:Verdana; margin-top: 20px;"><b>Advanced client</b></h2>
+    <p>The example given above maybe too simple or boring for the most of you, so let's create an advanced API client<br>Start by creating a new file called <mark>advaced_client.js</mark> and importing <mark>node-fetch</mark></p>
+    <pre class="line-numbers" style="background-color: white; margin-left: 10px; color:#5865F2; border-radius: 10px; width:fit-content;">
+        <code><br>const fetch = require('node-fetch');<br><br>class API_client {<br>&nbsp;&nbsp;&nbsp;&nbsp;constructor(api_token) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.token = api_token<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.base_URL = 'https://api.brawlstars.com/v1/'<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</code>
+    </pre>
+    <p>We have created a <mark>class</mark> here for fetching the API, now inside <mark>API_client</mark> make new <mark>functions</mark> to get the headers and fetch the info</p>
+    <pre class="line-numbers" style="background-color: white; margin-left: 10px; color:#5865F2; border-radius: 10px; width:fit-content;">
+        <code><br>getHeaders() {<br>&nbsp;&nbsp;&nbsp;&nbsp;return {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'authorization': 'Bearer API Token',<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Accept': 'application/json'<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br>async HTTP(endpoint) {<br>&nbsp;&nbsp;&nbsp;&nbsp;const result = await fetch(this.base_URL + enpoint, {headers = this.getHeaders()})<br>&nbsp;&nbsp;&nbsp;&nbsp;if (!res.ok) throw new Error('An error occured')<br>&nbsp;&nbsp;&nbsp;&nbsp;else return await result.json()<br>}</code>
+    </pre>
+    <p>Lastly we will do a <mark>module.exports = API_client</mark> outside the <mark>class</mark><br>This <mark>class</mark> can be used by creating an instanc of <mark>API_client</mark></p>
+    <pre class="line-numbers" style="background-color: white; margin-left: 10px; color:#5865F2; border-radius: 10px; width:fit-content;">
+        <code><br>//using the API client<br><br>const API_client = require('./advaced_client.js')<br><br>const client = new API_client('API Token');<br>const result = await client.HTTP('players/%238LUV02QJG');</code>
+    </pre>
+    <h2 style="text-align: left; margin-left: 10px; color: white; font-family:Verdana; margin-top: 20px;"><b>There you go!</b></h2>
+    <p>That is how you make an API client from scratch, more guides comming soon!<br>Also you could visit <a href="../index.html">Home</a> or join our <a href="https://discord.gg/RXysxKJaqk">Discord server</a></p>
+    <script src = "https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+        const crate = new Crate({
+            server: '856377026390654976',
+            channel: '856726716402630686',
+            glyph: ['https://media.discordapp.net/attachments/856377027132653620/856726526552047646/Untitled_25.jpg', '100%']
+        })
+    </script>
+    <footer style="text-align: left; padding: auto; font-family: Verdana; background-color: white; height: 80px; width: auto; margin-top: 80px; outline: #5865F2 solid 2px;">
+        <!--img src="assets/small_logo.png" style="height: 70px; margin-left: 10px; margin-top:2px;"-->
+        <!--button style="background-color: #5865F2; font-family: Verdana; border-style: none; border-radius: 5px; margin-left: 10px; color: white; margin-top: 15px; font-size: large; padding: 15px 32px;" onclick="window.location.replace(`https://stonybotofficial.gitbook.io/buzz-develope/`)"><b>Documentation</b></button-->
+        <button style="background-color: #5865F2; font-family: Verdana; border-style: none; border-radius: 5px; margin-left: 10px; color: white; margin-top: 15px; font-size: large; padding: 15px 32px;" onclick="window.location.replace(`https://github.com/Buzz-Development/buzz-development.github.io`)"><b>Source</b></button>
+    </footer>
+</body>
